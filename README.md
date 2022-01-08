@@ -4,7 +4,17 @@
 
 A comprehensive, step-by-step tutorial, for you to launch your whitelist using Candy Machine V2 with SPL Tokens + Gumdrop.
 
-_Check out how to maintain Metaplex as a [private repository](https://hackmd.io/@epomatti/HyCOmamhY)_.
+```sequence
+Developer->SPL: 1. Create/mint token
+Developer->CandyMachine: 2. Create/upload assets + wl settings
+Developer->Gumdrop: 3. Create & set the whitelist
+Gumdrop->User: Distribution
+User->ClaimSite: Claim tokens
+ClaimSite-->User: tokens
+User->MintSite: Initiate the Mint
+User->CandyMachine: Mint NFT using token
+CandyMachine-->User: NFT
+```
 
 :::info
 :information_source: You should always read the [official docs](https://docs.metaplex.com/) and keep up with the community updates.
@@ -410,8 +420,6 @@ As expected, the whitelist price is 0.33 SOL and the SPL Token is removed from t
 :information_source: Opened [this issue](https://github.com/metaplex-foundation/metaplex/issues/1465) to fix the displayed price, as it should be aware of the discount.
 :::
 
-
-And we reached the end of our tutorial.
 
 ### Close the Gumdrop
 
