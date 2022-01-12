@@ -2,7 +2,7 @@
 
 ###### tags: `metaplex` `whitelist`
 
-A comprehensive, step-by-step tutorial, for you to launch your whitelist using Candy Machine V2 with SPL Tokens + Gumdrop.
+A comprehensive, step-by-step tutorial, for you to launch your NFT project with whitelist using Candy Machine V2, SPL Tokens, and Gumdrop.
 
 ```sequence
 Developer->SPL: 1. Create/mint token
@@ -111,17 +111,13 @@ Create and fund your wallet:
 
 ```bash
 solana config set --url $URL
+solana config set --keypair $KEYPAIR
+
 solana-keygen new --outfile $KEYPAIR
 solana airdrop 2 --keypair $KEYPAIR
 ```
 
 :bulb: Copy the public key - you'll need it later.
-
-For the sake of simplicity we'll set this keypair as default:
-
-```bash
-solana config set --keypair $KEYPAIR
-```
 
 You can always get the public key later:
 
@@ -149,7 +145,7 @@ Mint the tokens:
 
 ```bash
 spl-token create-account $SPL_TOKEN
-spl-token mint $SPL_TOKEN 1000
+spl-token mint $SPL_TOKEN 10
 
 # Consider disabling the mint when you're done
 spl-token authorize $SPL_TOKEN mint --disable
@@ -271,6 +267,7 @@ ready to deploy!
 
 :::spoiler _Click here if you need to Upload the candy machine_
 ```bash
+# If you make changes in the "config.json"
 ts-node ./js/packages/cli/src/candy-machine-v2-cli.ts update_candy_machine \
   --env $ENV \
   --keypair $KEYPAIR \
@@ -349,8 +346,7 @@ Under the **`./logs`** folder the URLs have been generated in the `devnet-urls.j
 Users will claim their own tokens using this URL and use their tokens as proof for whitelist privileges while minting their NFTs.
 
 :::spoiler _Demo: Claiming the token with a user wallet_
-![Uploading file..._edf0uudoq]()
-
+![](https://i.imgur.com/xBOAYlr.gif)
 :::
 
 
@@ -387,7 +383,7 @@ yarn --cwd $CANDYUI install
 yarn --cwd $CANDYUI start
 ```
 
-:::spoiler _Click here if you lost your Candy Machine ID_
+:::spoiler _Click here if you forgot your Candy Machine ID_
 
 Run this to see your Candy Machine configuration:
 
